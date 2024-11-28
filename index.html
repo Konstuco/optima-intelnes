@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #4a484a, #615f61);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 10px;
+        }
+        .card {
+            background-color: #4a484a;
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            width: 200px;
+            padding: 15px;
+            font-size: 0.8em;
+            position: relative;
+        }
+        .card-title {
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            color: #bdb0bd;
+        }
+        .card-content {
+            margin-bottom: 10px;
+        }
+        .card-label {
+            font-weight: bold;
+        }
+        .card-value {
+            display: block;
+            background-color: #1f8de8;
+            padding: 5px;
+            border-radius: 4px;
+            margin-top: 3px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.9em;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .action-button {
+            background-color: #4a484a; /*Igualar el color*/
+            color: white;
+            border: none;
+            padding: 5px;
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1em;
+        }
+        .action-button:hover {
+            background-color: #1A252F;
+        }
+        .maintenance::before {
+            content: "En mantenimiento";
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background-color: #E74C3C;
+            color: white;
+            font-size: 0.8em;
+            font-weight: bold;
+            padding: 4px 15px;
+            transform: rotate(45deg);
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    <title>Cuentas de empresas</title>
+</head>
+<body>
+    <div class="card-container">
+        <!-- Tarjeta 1 -->
+        <div class="card">
+            <div class="card-title">METAPOIO DISEÑO Y CONSTRUCCIÓN SA de CV</div>
+            <div class="card-content">
+                <span class="card-label">Banco:</span>
+                <label class="card-value">BanRegio</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Cuenta:</span>
+                <label class="card-value">054904970011</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Clabe:</span>
+                <label class="card-value">058580549049700116</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Giro:</span><br>
+                <span class="card-label">Construcción</span>
+            </div>
+            <div class="action-buttons">
+                <button class="action-button" onclick="copyInfo(this)" aria-label="Copiar información">&#x2398;</button>
+                <button class="action-button" onclick="shareInfo(this)" aria-label="Compartir información">&#x1F517;</button>
+            </div>
+        </div>
+        
+        <!-- Tarjeta 2 -->
+        <div class="card">
+            <div class="card-title">SERVICIOS SAYAZZO SA de CV</div>
+            <div class="card-content">
+                <span class="card-label">Banco:</span>
+                <label class="card-value">Banrote</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Cuenta:</span>
+                <label class="card-value">1014270623</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Clabe:</span>
+                <label class="card-value">072580010142706234</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Giro:</span><br>
+                <span class="card-label">Publicidad y organización de eventos</span>
+            </div>
+            <div class="action-buttons">
+                <button class="action-button" onclick="copyInfo(this)" aria-label="Copiar información">&#x2398;</button>
+                <button class="action-button" onclick="shareInfo(this)" aria-label="Compartir información">&#x1F517;</button>
+            </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="card">
+            <div class="card-title">GRUPO NEOLEONES INCAP SA de CV</div>
+            <div class="card-content">
+                <span class="card-label">Banco:</span>
+                <label class="card-value">BanRegio</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Cuenta:</span>
+                <label class="card-value">023823850018</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Clabe:</span>
+                <label class="card-value">058580238238500182</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Giro:</span><br>
+                <span class="card-label">Comisionistas</span>
+            </div>
+            <div class="action-buttons">
+                <button class="action-button" onclick="copyInfo(this)" aria-label="Copiar información">&#x2398;</button>
+                <button class="action-button" onclick="shareInfo(this)" aria-label="Compartir información">&#x1F517;</button>
+            </div>
+        </div>
+
+        <!-- Tarjeta 4 -->
+        <div class="card">
+            <div class="card-title">MAJO DEL NORESTE SA de CV</div>
+            <div class="card-content">
+                <span class="card-label">Banco:</span>
+                <label class="card-value">Banorte</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Cuenta:</span>
+                <label class="card-value">1014644859</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Clabe:</span>
+                <label class="card-value">072580010146448598</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Giro:</span><br>
+                <span class="card-label">Mantenimiento Industrial</span>
+            </div>
+            <div class="action-buttons">
+                <button class="action-button" onclick="copyInfo(this)" aria-label="Copiar información">&#x2398;</button>
+                <button class="action-button" onclick="shareInfo(this)" aria-label="Compartir información">&#x1F517;</button>
+            </div>
+        </div>
+
+        <!-- Tarjeta 5 -->
+        <div class="card">
+            <div class="card-title">AG REPARACIONES Y MANTENIMIENTO SA de CV</div>
+            <div class="card-content">
+                <span class="card-label">Banco:</span>
+                <label class="card-value">Banorte</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Cuenta:</span>
+                <label class="card-value">0364355125</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Clabe:</span>
+                <label class="card-value">072580003643551254</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Giro:</span><br>
+                <span class="card-label">Mantenimiento Industrial</span>
+            </div>
+            <div class="action-buttons">
+                <button class="action-button" onclick="copyInfo(this)" aria-label="Copiar información">&#x2398;</button>
+                <button class="action-button" onclick="shareInfo(this)" aria-label="Compartir información">&#x1F517;</button>
+            </div>
+        </div>
+
+        <!-- Tarjeta 6 -->
+        <div class="card">
+            <div class="card-title">VICTUM DE MONTERREY  SA de CV</div>
+            <div class="card-content">
+                <span class="card-label">Banco:</span>
+                <label class="card-value">Banorte</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Cuenta:</span>
+                <label class="card-value">0364404377</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Clabe:</span>
+                <label class="card-value">072580003644043774</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Giro:</span><br>
+                <span class="card-label">Consultoría y Capacitación</span>
+            </div>
+            <div class="action-buttons">
+                <button class="action-button" onclick="copyInfo(this)" aria-label="Copiar información">&#x2398;</button>
+                <button class="action-button" onclick="shareInfo(this)" aria-label="Compartir información">&#x1F517;</button>
+            </div>
+        </div>
+        <!-- Tarjeta 7 -->
+        <div class="card">
+            <div class="card-title">FASTWAY CONSULTORIA SA de CV</div>
+            <div class="card-content">
+                <span class="card-label">Banco:</span>
+                <label class="card-value">Banorte</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Cuenta:</span>
+                <label class="card-value">0459932842</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Clabe:</span>
+                <label class="card-value">072580004599328420</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Giro:</span><br>
+                <span class="card-label">Servicios legales y Contables</span>
+            </div>
+            <div class="action-buttons">
+                <button class="action-button" onclick="copyInfo(this)" aria-label="Copiar información">&#x2398;</button>
+                <button class="action-button" onclick="shareInfo(this)" aria-label="Compartir información">&#x1F517;</button>
+            </div>
+        </div>
+        <!-- Tarjeta 8 -->
+        <div class="card">
+            <div class="card-title">AKB DEL NORTE SA de CV</div>
+            <div class="card-content">
+                <span class="card-label">Banco:</span>
+                <label class="card-value">Banorte</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Cuenta:</span>
+                <label class="card-value">1020439403</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Clabe:</span>
+                <label class="card-value">072580010204394034</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Giro:</span><br>
+                <span class="card-label">Venta de Materiales para la construcción</span>
+            </div>
+            <div class="action-buttons">
+                <button class="action-button" onclick="copyInfo(this)" aria-label="Copiar información">&#x2398;</button>
+                <button class="action-button" onclick="shareInfo(this)" aria-label="Compartir información">&#x1F517;</button>
+            </div>
+        </div>
+        <!-- Tarjeta 9 -->
+        <div class="card">
+            <div class="card-title">DEL TORO COMERCIO DE PRODUCTOS Y SERVICIOS SA de CV</div>
+            <div class="card-content">
+                <span class="card-label">Banco:</span>
+                <label class="card-value">Banorte</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Cuenta:</span>
+                <label class="card-value">0474869268 </label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Clabe:</span>
+                <label class="card-value">072580004748692680</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Giro:</span><br>
+                <span class="card-label">Venta de Materiales para la construcción</span>
+            </div>
+            <div class="action-buttons">
+                <button class="action-button" onclick="copyInfo(this)" aria-label="Copiar información">&#x2398;</button>
+                <button class="action-button" onclick="shareInfo(this)" aria-label="Compartir información">&#x1F517;</button>
+            </div>
+        </div>
+        <!-- Tarjeta 10 -->
+        <div class="card">
+            <div class="card-title">MAJO DEL NORESTE SA de CV</div>
+            <div class="card-content">
+                <span class="card-label">Banco:</span>
+                <label class="card-value">Banorte</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Cuenta:</span>
+                <label class="card-value">1014644859</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Clabe:</span>
+                <label class="card-value">072580010146448598</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Giro:</span><br>
+                <span class="card-label">Renta de Maquinaria</span>
+            </div>
+            <div class="action-buttons">
+                <button class="action-button" onclick="copyInfo(this)" aria-label="Copiar información">&#x2398;</button>
+                <button class="action-button" onclick="shareInfo(this)" aria-label="Compartir información">&#x1F517;</button>
+            </div>
+        </div>
+        <!-- Tarjeta 11 -->
+        <div class="card">
+            <div class="card-title">RIGA SOLUCIONES EN ADMINISTRACIÓN SA de CV</div>
+            <div class="card-content">
+                <span class="card-label">Banco:</span>
+                <label class="card-value">BanRegio</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Cuenta:</span>
+                <label class="card-value">003656710011</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Clabe:</span>
+                <label class="card-value">058580036567100112</label>
+            </div>
+            <div class="card-content">
+                <span class="card-label">Giro:</span><br>
+                <span class="card-label">Renta y Venta de Inmuebles</span>
+            </div>
+            <div class="action-buttons">
+                <button class="action-button" onclick="copyInfo(this)" aria-label="Copiar información">&#x2398;</button>
+                <button class="action-button" onclick="shareInfo(this)" aria-label="Compartir información">&#x1F517;</button>
+            </div>
+        </div>
+        <!-- Tarjeta 12 -->
+       
+        <!-- Tarjeta 13 -->
+        
+        <!-- Tarjeta 14 -->
+        
+    </div>
+
+    <script>
+    function copyInfo(button) {
+    const card = button.closest('.card');
+    let info = '';
+
+    info += card.querySelector('.card-title').textContent.trim() + "\n";
+    card.querySelectorAll('.card-content').forEach(content => {
+        let label = content.querySelector('.card-label').textContent.trim();
+        if (label !== 'Giro:') {
+            let value = content.querySelector('.card-value')?.textContent.trim();
+            info += label + (value ? value : '') + "\n";
+        } else {
+            let text = content.querySelector('.card-label').nextSibling.textContent.trim();
+            info += text + "\n";
+        }
+    });
+    
+    navigator.clipboard.writeText(info).then(() => {
+        alert('Información copiada al portapapeles');
+    }).catch(err => {
+        alert('Error al copiar la información');
+    });
+}
+
+function shareInfo(button) {
+    const card = button.closest('.card');
+    let info = '';
+
+    info += card.querySelector('.card-title').textContent.trim() + "\n";
+    card.querySelectorAll('.card-content').forEach(content => {
+        let label = content.querySelector('.card-label').textContent.trim();
+        if (label !== 'Giro:') {
+            let value = content.querySelector('.card-value')?.textContent.trim();
+            info += label + (value ? value : '') + "\n";
+        } else {
+            let text = content.querySelector('.card-label').nextSibling.textContent.trim();
+            info += text + "\n";
+        }
+    });
+
+    if (navigator.share) {
+        navigator.share({
+            title: "Datos Bancarios",
+            text: info,
+        }).catch(err => {
+            console.error("Error sharing:", err);
+        });
+    } else {
+        alert("La función de compartir no está disponible en este navegador.");
+    }
+}
+    </script>
+</body>
+</html>
